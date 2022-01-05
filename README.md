@@ -1,24 +1,7 @@
-# README
+루비 온 레일즈로 만든 유투브 웹사이트 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://youtu.be/QY69b33ui0c 을 참고하여 만들었습니다
 
-Things you may want to cover:
+상업적 목적은 없으며, 공부용입니다! 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+구글 로그인이 추가되었습니다!!
