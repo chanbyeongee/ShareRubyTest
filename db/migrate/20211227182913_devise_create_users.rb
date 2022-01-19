@@ -25,7 +25,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :uid
 
       ## add JTI
-      t.string :jti
+      t.string :jti, null: false
 
 
       ## Trackable

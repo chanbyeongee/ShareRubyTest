@@ -33,10 +33,8 @@ gem "font-awesome-rails"
 
 gem 'devise'
 gem 'devise-jwt'
-gem 'warden'
-gem 'warden-jwt_auth'
 
-gem 'rack-cors'
+gem "rack-cors"
 
 gem 'fast_jsonapi'
 

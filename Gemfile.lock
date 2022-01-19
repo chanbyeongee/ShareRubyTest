@@ -378,8 +378,6 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
-  warden
-  warden-jwt_auth
   web-console
   webdrivers
 
