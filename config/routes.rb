@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     post 'api/login', to: 'api/sessions#create', defaults: { format: :json}
     post 'api/register', to: 'api/registrations#create', defaults: { format: :json}
   end
-  get '/current_user', to: 'current_user#index'
+
   # Defines the root path route ("/")
   root "videos#index"
 end

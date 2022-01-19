@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-class Api::SessionsController < Users::SessionsController
+class Api::SessionsController < Devise::SessionsController
   skip_before_action :verify_authenticity_token
-
+  protect_from_forgery with: :null_session
+  
   respond_to :json
 
   private

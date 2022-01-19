@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_12_28_161502) do
     t.datetime "remember_created_at", precision: 6
     t.string "provider"
     t.string "uid"
-    t.string "jti"
+    t.string "jti", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

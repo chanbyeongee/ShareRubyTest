@@ -1,5 +1,6 @@
-class Api::RegistrationsController < Users::RegistrationsController
-
+class Api::RegistrationsController < Devise::RegistrationsController
+  before_action :configure_sign_up_params, only: [:create]
+  protect_from_forgery with: :null_session
   skip_before_action :verify_authenticity_token
 
   respond_to :json
@@ -20,6 +21,11 @@ class Api::RegistrationsController < Users::RegistrationsController
   end
 
 
+  protected
+
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :subname, :gender, :birth])
+  end
 
 
 end
