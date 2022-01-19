@@ -12,9 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_12_28_161502) do
 
-  create_table "comments", force: :cascade do |t|
-    t.integer "video_id", null: false
-    t.integer "user_id", null: false
+  create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "video_id", null: false
+    t.bigint "user_id", null: false
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -22,24 +22,30 @@ ActiveRecord::Schema.define(version: 2021_12_28_161502) do
     t.index ["video_id"], name: "index_comments_on_video_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "name"
+    t.string "subname"
+    t.integer "gender"
+    t.string "birth"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at", precision: 6
     t.datetime "remember_created_at", precision: 6
     t.string "provider"
     t.string "uid"
+    t.string "jti"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "videos", force: :cascade do |t|
+  create_table "videos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "title"
     t.text "description"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.integer "view_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

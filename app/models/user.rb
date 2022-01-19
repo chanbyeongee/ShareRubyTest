@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Devise::JWT::RevocationStrategies::JTIMatcher
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
@@ -6,8 +7,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, :omniauth_providers => [:google_oauth2]
+         :omniauthable, :jwt_authenticatable, jwt_revocation_strategy: self, :omniauth_providers => [:google_oauth2]
   has_many :comments
+
+  def jwt_payload
+    super.merge('foo' => 'bar')
+  end
 
   def self.from_omniauth(auth)
     user = User.find_by(email: auth.info.email)
